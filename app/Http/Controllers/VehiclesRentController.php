@@ -130,31 +130,35 @@ class VehiclesRentController extends Controller
 
         $detail = $request->get('detail');
 //        dd($detail);
+//        dd(array_column($detail, 'category'), $vc->category()->detach());
+        $vc->category()->detach();
         foreach ($detail as $uid => $detail) {
 
             $category = $detail['category'];
             $data     = $detail['data'];
 
-            $listData = [];
+//            $listData = [];
             foreach ($data as $d) {
 
-//                $vehicleRentDetail = VehicleRentDetail::create(
-//                    [
-//                        'group_code'                          => $uid,
-//                        'category_id'                          => $category,
-//                        'vehicle_rent_detail_nominal'          => $d['vehicle_rent_detail_nominal'],
-//                        'vehicle_rent_detail_transaction_name' => $d['vehicle_rent_detail_transaction_name']
-//
-//                    ]
-//
-//                );
-                array_push($listData,[ $category => [
-                    'group_code'                          => $uid,
-//                    'category_id'                          => $category,
-                    'vehicle_rent_detail_nominal'          => $d['vehicle_rent_detail_nominal'],
-                    'vehicle_rent_detail_transaction_name' => $d['vehicle_rent_detail_transaction_name']
+                $vehicleRentDetail = VehicleRentDetail::create(
+                    [
+                        'group_code'                          => $uid,
+                        'category_id'                          => $category,
+                        'vehicle_rent_detail_nominal'          => $d['vehicle_rent_detail_nominal'],
+                        'vehicle_rent_detail_transaction_name' => $d['vehicle_rent_detail_transaction_name']
 
-                ]] );
+                    ]
+
+                );
+                $vc->vehicleRentDetail()->save($vehicleRentDetail);
+
+//                array_push($listData,[
+//                    'group_code'                          => $uid,
+////                    'category_id'                          => $category,
+//                    'vehicle_rent_detail_nominal'          => $d['vehicle_rent_detail_nominal'],
+//                    'vehicle_rent_detail_transaction_name' => $d['vehicle_rent_detail_transaction_name']
+//
+//                ] );
 
 //                $vc->category()->sync([$category => [
 //                    'group_code'                          => $uid,
@@ -165,14 +169,15 @@ class VehiclesRentController extends Controller
 //                ]] );
 
             }
+//            $vc->category()->sync([$category => $listData]);
 //            dd($listData);
-            $vc->category()->sync($listData);
-            dd($listData);
 //            dd($request->all());
         }
 
-        dd($request->all());
+//        dd($request->all());
+        return redirect()->route('sewaKendaraan.index')->with('success', 'Data berhasil disimpan.');
     }
+
 
     /**
      * Remove the specified resource from storage.
