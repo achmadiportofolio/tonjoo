@@ -13,7 +13,8 @@
                         <div class="row">
                             <div class="col-lg-3">Description</div>
                             <div class="col-lg-9">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                <textarea class="form-control" name="vehicle_rent_description"
+                                          id="vehicle_rent_description" rows="5" required></textarea>
                             </div>
                         </div>
 
@@ -23,8 +24,9 @@
                             <div class="col-lg-4">Code</div>
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"
-                                           >
+                                    <input type="text" class="form-control" name="vehicle_rent_code"
+                                           id="vehicle_rent_code" placeholder="Code"
+                                           required>
                                 </div>
                             </div>
                         </div>
@@ -32,8 +34,9 @@
                             <div class="col-lg-4">Rate Euro</div>
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"
-                                           >
+                                    <input type="number" class="form-control" name="vehicle_rent_rate"
+                                           id="vehicle_rent_rate" placeholder="Rate Euro"
+                                           required>
                                 </div>
                             </div>
                         </div>
@@ -41,8 +44,9 @@
                             <div class="col-lg-4">Date Paid</div>
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"
-                                           >
+                                    <input type="text" class="form-control" name="vehicle_rent_date"
+                                           id="vehicle_rent_date" placeholder="Date Paid"
+                                           required>
                                 </div>
                             </div>
                         </div>
@@ -54,18 +58,20 @@
                         <h4> Data Transaksi</h4>
                         <hr>
                         <div class="row" style="padding: 10px;">
-                            <div class="col-lg-12" >
+                            <div class="col-lg-12">
 
                                 <!-- dinamic list-->
                                 <div class="row" style="padding: 10px;">
                                     <div class="col-lg" id="list_transaksi">
 
-                                        <div class="row row-transaksi" style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;">
+                                        <div class="row row-transaksi"
+                                             style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;">
                                             <div class="col-md-11">
                                                 <div class="row">
                                                     <div class="col-lg-2">Category</div>
                                                     <div class="col-lg-10">
-                                                        <select name="catetory[]"  class="form-control">
+                                                        <select name="detail[][category]" class="form-control category "
+                                                                required>
                                                             <option value="0">Income</option>
                                                             <option value="1">Expense</option>
                                                         </select>
@@ -75,26 +81,31 @@
                                                     <div class="col-lg-2"></div>
                                                     <div class="col-lg-10">
                                                         <table class="table user-transaksi">
-                                                            <caption>List of users</caption>
                                                             <thead>
                                                             <tr>
                                                                 <th scope="col">Nama Transaksi</th>
                                                                 <th scope="col">Nominal</th>
+                                                                <th scope="col">#</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <tr>
-                                                                <th scope="row">Yakobus</th>
-                                                                <td>Rp.000000</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th >
-                                                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"
-                                                                           >
+                                                                <th>
+                                                                    <input type="text" class="form-control detail_name"
+                                                                           id=""
+                                                                           name="detail[uuid][data][][vehicle_rent_detail_transaction_name]"
+                                                                           placeholder="Nama Transaksi"
+                                                                           required>
                                                                 </th>
                                                                 <td>
-                                                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"
-                                                                           >
+                                                                    <input type="number"
+                                                                           class="form-control detail_nominal"
+                                                                           name="detail[uuid][data][][vehicle_rent_detail_nominal]"
+                                                                           placeholder="Nominal"
+                                                                           required>
+                                                                </td>
+                                                                <td>
+                                                                    #
                                                                 </td>
                                                             </tr>
                                                             </tbody>
@@ -103,7 +114,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-1">
-                                                <button class="btn btn-success users-transaksi" >+</button>
+                                                <button class="btn btn-success add-users-transaksi">+</button>
                                             </div>
                                         </div>
 
@@ -137,92 +148,132 @@
 @push('dashboard_script')
     <script type="text/javascript">
         $(document).ready(function () {
-            console.log('xxx')
-           $('#add_list_Transaksi').on('click', function (e){
-               e.preventDefault();
-               console.log('add-list-transaki');
-               let el_list_transaksi = '<div class="row row-transaksi" style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;">\n' +
-                   '                                            <div class="col-md-11">\n' +
-                   '                                                <div class="row">\n' +
-                   '                                                    <div class="col-lg-2">Category</div>\n' +
-                   '                                                    <div class="col-lg-10">\n' +
-                   '                                                        <select name="catetory[]"  class="form-control">\n' +
-                   '                                                            <option value="0">Income</option>\n' +
-                   '                                                            <option value="1">Expense</option>\n' +
-                   '                                                        </select>\n' +
-                   '                                                    </div>\n' +
-                   '                                                </div>\n' +
-                   '                                                <div class="row">\n' +
-                   '                                                    <div class="col-lg-2"></div>\n' +
-                   '                                                    <div class="col-lg-10">\n' +
-                   '                                                        <table class="table user-transaksi">\n' +
-                   '                                                            <caption>List of users</caption>\n' +
-                   '                                                            <thead>\n' +
-                   '                                                            <tr>\n' +
-                   '                                                                <th scope="col">Nama Transaksi</th>\n' +
-                   '                                                                <th scope="col">Nominal</th>\n' +
-                   '                                                            </tr>\n' +
-                   '                                                            </thead>\n' +
-                   '                                                            <tbody>\n' +
-                   '                                                            <tr>\n' +
-                   '                                                                <th scope="row">Yakobus</th>\n' +
-                   '                                                                <td>Rp.000000</td>\n' +
-                   '                                                            </tr>\n' +
-                   '                                                            <tr>\n' +
-                   '                                                                <th >\n' +
-                   '                                                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"\n' +
-                   '                                                                           >\n' +
-                   '                                                                </th>\n' +
-                   '                                                                <td>\n' +
-                   '                                                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"\n' +
-                   '                                                                           >\n' +
-                   '                                                                </td>\n' +
-                   '                                                            </tr>\n' +
-                   '                                                            </tbody>\n' +
-                   '                                                        </table>\n' +
-                   '                                                    </div>\n' +
-                   '                                                </div>\n' +
-                   '                                            </div>\n' +
-                   '                                            <div class="col-lg-1">\n' +
-                   '                                                <button class="btn btn-success users-transaksi">+</button>\n' +
-                   '                                            </div>\n' +
-                   '                                        </div>'
-               $('#list_transaksi').append(el_list_transaksi);
 
-           }) ;
+            function createUUID() {
+                var s = [];
+                var hexDigits = "0123456789abcdef";
+                for (var i = 0; i < 36; i++) {
+                    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+                }
+                s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+                s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+                s[8] = s[13] = s[18] = s[23] = "-";
+
+                var uuid = s.join("");
+                return uuid;
+            }
+
+            function readyForm() {
+                let dataUUID01 = createUUID()
+                let dataUUID02 = createUUID()
+                let row_first = $('#list_transaksi div:nth-child(1)')
+                row_first.attr('data-id', dataUUID01)
+                row_first.find('.detail_name').attr('name', 'detail[' + dataUUID01 + '][data][' + dataUUID02 + '][vehicle_rent_detail_transaction_name]')
+                row_first.find('.detail_nominal').attr('name', 'detail[' + dataUUID01 + '][data][' + dataUUID02 + '][vehicle_rent_detail_nominal]')
+                row_first.find('.category').attr('name', 'detail[' + dataUUID01 + '][category]')
+
+            }
+
+            readyForm()
+            $('#add_list_Transaksi').on('click', function (e) {
+                e.preventDefault();
+                let dataUID = createUUID();
+                let dataUUID02 = createUUID()
+                let el_list_transaksi = '<div class="row row-transaksi" style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;" data-id="' + dataUID + '">\n' +
+                                        '     <div class="col-md-11">\n' +
+                                        '         <div class="row">\n' +
+                                        '             <div class="col-lg-2">Category</div>\n' +
+                                        '             <div class="col-lg-10">\n' +
+                                        '                 <select name="detail[' + dataUID + '][category]"  class="form-control">\n' +
+                                        '                     <option value="0">Income</option>\n' +
+                                        '                     <option value="1">Expense</option>\n' +
+                                        '                 </select>\n' +
+                                        '             </div>\n' +
+                                        '         </div>\n' +
+                                        '         <div class="row">\n' +
+                                        '             <div class="col-lg-2"></div>\n' +
+                                        '             <div class="col-lg-10">\n' +
+                                        '                 <table class="table user-transaksi">\n' +
+                                        '                     <thead>\n' +
+                                        '                     <tr>\n' +
+                                        '                         <th scope="col">Nama Transaksi</th>\n' +
+                                        '                         <th scope="col">Nominal</th>\n' +
+                                        '                         <th scope="col">#</th>\n' +
+                                        '                     </tr>\n' +
+                                        '                     </thead>\n' +
+                                        '                     <tbody>\n' +
+                                        '                     <tr>\n' +
+                                        '                         <th >\n' +
+                                        '                             <input type="text" class="form-control"  name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_transaction_name]" placeholder="Nama Transaksi"\n' +
+                                        'required >\n' +
+                                        '                         </th>\n' +
+                                        '                         <td>\n' +
+                                        '                             <input type="number" class="form-control" name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_nominal]" placeholder="Nominal"\n' +
+                                        'required >\n' +
+                                        '                         </td>\n' +
+                                        '                         <td>\n' +
+                                        '                           ' +
+                                        '                         </td>\n' +
+                                        '                     </tr>\n' +
+                                        '                     </tbody>\n' +
+                                        '                 </table>\n' +
+                                        '             </div>\n' +
+                                        '         </div>\n' +
+                                        '     </div>\n' +
+                                        '     <div class="col-lg-1">\n' +
+                                        '         <button class="btn btn-success add-users-transaksi">+</button>\n' +
+                                        '         <button class="btn btn-danger remove-users-transaksi">-</button>\n' +
+                                        '     </div>\n' +
+                                        ' </div>'
+                $('#list_transaksi').append(el_list_transaksi);
+
+            });
+
             $('#list_transaksi').on('click', function (e) {
                 e.preventDefault();
                 let objEl = $(e.target);
-                console.log('row-transaksi')
-                if(objEl.hasClass('users-transaksi')){
+                if (objEl.hasClass('add-users-transaksi')) {
                     let row_transaksi_scope = objEl.closest('.row-transaksi');
-                    console.log('row_transaksi_scope')
-                    console.log(row_transaksi_scope)
-                    let body_table  = row_transaksi_scope.find('table.user-transaksi > tbody');
-                    console.log(body_table);
+                    let dataUID = row_transaksi_scope.attr('data-id');
+                    let dataUUID02 = createUUID()
+                    let body_table = row_transaksi_scope.find('table.user-transaksi > tbody');
 
                     let new_row = '<tr>\n' +
-                        '                                                                <th >\n' +
-                        '                                                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"\n' +
-                        '                                                                           >\n' +
-                        '                                                                </th>\n' +
-                        '                                                                <td>\n' +
-                        '                                                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"\n' +
-                        '                                                                           >\n' +
-                        '                                                                </td>\n' +
-                        '                                                            </tr>'
+                                '    <th >\n' +
+                                '        <input type="text" class="form-control" name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_transaction_name]" placeholder="Nama Transaksi"\n' +
+                                '               required >\n' +
+                                '    </th>\n' +
+                                '    <td>\n' +
+                                '        <input type="number" class="form-control"  name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_nominal]" placeholder="Nominal"\n' +
+                                '               required >\n' +
+                                '    </td>\n' +
+                                '    <td>\n' +
+                                '        <button class="btn btn-danger remove-users-transaksi-row">-</button>\n' +
+                                '    </td>\n' +
+                                '</tr>'
                     body_table.append(new_row)
-                    console.log('row appended')
+                    return false;
+                }
+                if (objEl.hasClass('remove-users-transaksi')) {
+                    let row_transaksi_scope = objEl.closest('.row-transaksi');
+                    row_transaksi_scope.remove();
+                    return false;
+                }
+                if (objEl.hasClass('remove-users-transaksi-row')) {
+                    let row_transaksi_tr = objEl.closest('tr');
+                    row_transaksi_tr.remove();
                     return false;
                 }
                 return false;
-            })
+            });
+
+
         });
     </script>
 @endpush
 @push('dashboard_styles')
-    <style >
-        .row-transaksi{
+    <style>
+        .row-transaksi {
             margin-bottom: 10px;
         }
     </style>
