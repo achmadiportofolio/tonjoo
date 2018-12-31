@@ -54,7 +54,10 @@
                         </div>
                         {{--<div class="input-group mb-2 mr-sm-2">--}}
                             <select name="category_id" class="form-control mb-2 mr-sm-2" >
-                                <option value="0" {{request()->get('category_id')==0?'selected': ''}}>
+                                <option value="">
+                                    All
+                                </option>
+                                <option value="0" {{request()->get('category_id')==='0'?'selected': ''}}>
                                     Income
                                 </option>
                                 <option value="1" {{request()->get('category_id')==1?'selected': ''}}>
@@ -62,7 +65,7 @@
                                 </option>
                             </select>
                         {{--</div>--}}
-                        <input name="vehicle_rent_detail_transaction_name" value="{{request()->get('vehicle_rent_detail_transaction_name')}}" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Description">
+                        <input name="vehicle_rent_description" value="{{request()->get('vehicle_rent_description')}}" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Description">
 
 
 
@@ -74,6 +77,7 @@
                         {{--</div>--}}
 
                         <button type="submit" class="btn btn-primary mb-2">cari</button>
+                        <a href="{{route('sewaKendaraan.index')}}" class="btn btn-danger mb-2">Reset</a>
                     </form>
                 </div>
             </div>
