@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VehicleRentStoreRequest;
 use App\VehicleRent;
 use App\VehicleRentDetail;
 use Illuminate\Http\Request;
@@ -24,6 +25,7 @@ class VehiclesRentController extends Controller
         $vrQuery->select(DB::raw('vehicle_rent.*, 
                                         vehicle_rent_detail.vehicle_rent_id,
                                         vehicle_rent_detail.category_id,
+                                        category.category_name,
                                         vehicle_rent_detail.vehicle_rent_detail_transaction_name,
                                         vehicle_rent_detail.vehicle_rent_detail_nominal,
                                         vehicle_rent_detail.group_code,
@@ -31,19 +33,19 @@ class VehiclesRentController extends Controller
         $vrQuery->join('vehicle_rent_detail', 'vehicle_rent_detail.vehicle_rent_id', '=', 'vehicle_rent.id');
         $vrQuery->join('category', 'vehicle_rent_detail.category_id', '=', 'category.id');
 
-        if($request->filled('start_date') && $request->filled('end_date')){
+        if ($request->filled('start_date') && $request->filled('end_date')) {
             $start_date = request()->get('start_date');
-            $end_date = request()->get('end_date');
-            $vrQuery->whereBetween('vehicle_rent.vehicle_rent_date', [$start_date,$end_date] );
+            $end_date   = request()->get('end_date');
+            $vrQuery->whereBetween('vehicle_rent.vehicle_rent_date', [$start_date, $end_date]);
         }
-        if($request->filled('category_id')){
+        if ($request->filled('category_id')) {
             $category_id = request()->get('category_id');
             $vrQuery->where('vehicle_rent_detail.category_id', $category_id);
 
         }
-        if($request->filled('vehicle_rent_description')){
+        if ($request->filled('vehicle_rent_description')) {
             $vehicle_rent_description = request()->get('vehicle_rent_description');
-            $vrQuery->where('vehicle_rent.vehicle_rent_description', 'like',$vehicle_rent_description.'%' );
+            $vrQuery->where('vehicle_rent.vehicle_rent_description', 'like', $vehicle_rent_description . '%');
         }
 
         $vehicleRent = $vrQuery->orderBy('vehicle_rent.created_at')->paginate(5);
@@ -66,13 +68,12 @@ class VehiclesRentController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehicleRentStoreRequest $request)
     {
-
         $vehicleRent = new VehicleRent(
             [
                 'vehicle_rent_description' => $request->get('vehicle_rent_description'),
-                'vehicle_rent_date'        => Carbon::now(),
+                'vehicle_rent_date'        => $request->get('vehicle_rent_date'),
                 'vehicle_rent_code'        => $request->get('vehicle_rent_code'),
                 'vehicle_rent_rate'        => $request->get('vehicle_rent_rate')
             ]
@@ -100,6 +101,7 @@ class VehiclesRentController extends Controller
                 $vehicleRent->vehicleRentDetail()->save($vehicleRentDetail);
             }
         }
+
         return redirect()->route('sewaKendaraan.index')->with('success', 'Data berhasil disimpan.');
 
     }
@@ -123,6 +125,7 @@ class VehiclesRentController extends Controller
      */
     public function edit($id)
     {
+
         $vr = VehicleRent::findOrFail($id);
         return view('vehicle_rent.edit', compact('vr'));
     }
@@ -134,7 +137,7 @@ class VehiclesRentController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VehicleRentStoreRequest $request, $id)
     {
         $vc                           = VehicleRent::findOrFail($id);
         $vc->vehicle_rent_description = $request->get('vehicle_rent_description');
@@ -180,5 +183,16 @@ class VehiclesRentController extends Controller
      */
     public function destroy($id)
     {
+        $vc                       = VehicleRent::findOrFail($id);
+        $vehicle_rent_description = $vc->vehicle_rent_description;
+        $vehicle_rent_code        = $vc->vehicle_rent_code;
+        $vc->vehicleRentDetail()->delete();
+
+        if ($vc->delete()) {
+            return redirect()->route('sewaKendaraan.index')->with('success', 'Data transaksi ' . $vehicle_rent_code . ' (' . $vehicle_rent_description . ') berhasil dihapus.');
+        }
+
+        return redirect()->route('sewaKendaraan.index')->with('success', 'Data transaksi ' . $vehicle_rent_code . ' (' . $vehicle_rent_description . ') gagal dihapus.');
+
     }
 }

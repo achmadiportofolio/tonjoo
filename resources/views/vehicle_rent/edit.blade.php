@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="vehicle_rent_date"
                                            id="vehicle_rent_date" placeholder="Date Paid"
-                                           value="{{$vr->vehicle_rent_date}}"
+                                           value="{{$vr->vehicle_rent_date->format('Y-m-d')}}"
                                            required>
                                 </div>
                             </div>
@@ -69,15 +69,16 @@
                                 @php
                                     $vr->vehicleRentDetail = $vr->vehicleRentDetail->groupBy('group_code');
                                 @endphp
-                                    <div class="row" style="padding: 10px;" >
-                                        <div class="col-lg" id="list_transaksi">
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-lg" id="list_transaksi">
 
-                                            @foreach($vr->vehicleRentDetail as $key_uid => $vehicleRentDetail)
+                                        @foreach($vr->vehicleRentDetail as $key_uid => $vehicleRentDetail)
                                             <div class="row row-transaksi"
-                                                 style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;" data-id="{{(string) $key_uid}}">
+                                                 style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;"
+                                                 data-id="{{(string) $key_uid}}">
                                                 <div class="col-md-11">
                                                     <div class="row">
-                                                        <div class="col-lg-2">Category {{(string) $key_uid}}</div>
+                                                        <div class="col-lg-2">Category</div>
                                                         <div class="col-lg-10">
                                                             <select name="detail[{{(string) $key_uid}}][category]"
                                                                     class="form-control category "
@@ -125,7 +126,9 @@
                                                                         </td>
                                                                         <td>
                                                                             @if($key > 0)
-                                                                                <button class="btn btn-danger remove-users-transaksi-row">-</button>
+                                                                                <button class="btn btn-danger remove-users-transaksi-row">
+                                                                                    -
+                                                                                </button>
                                                                             @endif
                                                                         </td>
                                                                     </tr>
@@ -141,9 +144,9 @@
                                                 </div>
                                             </div>
 
-                                            @endforeach
-                                        </div>
+                                        @endforeach
                                     </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row float-right" style="padding: 10px;">
