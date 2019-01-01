@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    exi('xx');
     return view('welcome');
 });
 
