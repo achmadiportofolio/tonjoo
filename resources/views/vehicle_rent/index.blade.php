@@ -73,7 +73,7 @@
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
                                             <button class="btn btn-danger sewa-kendaraan-destroy"
-                                                    onclick="tonjooConfirm" type="submit">Delete
+                                                    onclick="tonjooConfirm" type="submit" data-code="{{$rent->vehicle_rent_code}}">Delete
                                             </button>
                                         </form>
 
@@ -107,7 +107,8 @@
         $(document).ready(function () {
             $('.sewa-kendaraan-destroy').on('click', function (e) {
                 e.preventDefault();
-                var r = confirm("Press a button!");
+                let code = $(e.target).attr('data-code');
+                var r = confirm("Tekan OK untuk melajutkan menghapus transaksi "+ code +"!");
                 if (r == true) {
                     $(e.target).closest('form').submit();
                 }
