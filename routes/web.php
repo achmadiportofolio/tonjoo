@@ -20,4 +20,5 @@ Route::get('/landing_page', function () {
 })->name('landing.page');
 
 Route::resource('sewaKendaraan', 'VehiclesRentController');
+Route::resource('rekapSewaKendaraan', 'RecapVehiclesRentController')->only('index');
 
