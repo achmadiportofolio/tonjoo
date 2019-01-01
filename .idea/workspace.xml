@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd2ac602-9ee2-4f84-9fe3-1d2069c9f26b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="cd2ac602-9ee2-4f84-9fe3-1d2069c9f26b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="110" column="79" selection-start-line="110" selection-start-column="79" selection-end-line="110" selection-end-column="79" />
+            <state relative-caret-position="2091">
+              <caret line="123" column="8" lean-forward="true" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -459,12 +457,12 @@
       <updated>1546077245546</updated>
       <workItem from="1546077246809" duration="16834000" />
       <workItem from="1546226325825" duration="28000" />
-      <workItem from="1546296015231" duration="12101000" />
+      <workItem from="1546296015231" duration="12443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32056000" />
+    <option name="totallyTimeSpent" value="32398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -753,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="110" column="79" selection-start-line="110" selection-start-column="79" selection-end-line="110" selection-end-column="79" />
+        <state relative-caret-position="2091">
+          <caret line="123" column="8" lean-forward="true" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
         </state>
       </provider>
     </entry>
