@@ -25,7 +25,8 @@ class VehicleRent extends Model
         return $this->hasMany(VehicleRentDetail::class, 'vehicle_rent_id', 'id');
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsToMany(Category::class, 'vehicle_rent_detail', 'vehicle_rent_id', 'category_id')
             ->withPivot([
                 'vehicle_rent_detail_transaction_name',
@@ -35,3 +36,4 @@ class VehicleRent extends Model
     }
 
 }
+

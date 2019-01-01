@@ -14,7 +14,8 @@
                             <div class="col-lg-3">Description</div>
                             <div class="col-lg-9">
                                 <textarea class="form-control" name="vehicle_rent_description"
-                                          id="vehicle_rent_description" rows="5" required>{{ old('vehicle_rent_description') }}</textarea>
+                                          id="vehicle_rent_description" rows="5"
+                                          required>{{ old('vehicle_rent_description') }}</textarea>
                             </div>
                         </div>
 
@@ -60,7 +61,6 @@
                     <div class="col-lg-12" style="border: 1px solid rgba(0, 0, 0, 0.7); padding: 10px;">
                         <h4> Data Transaksi</h4>
                         <hr>
-                        {{--{{ dd(old('detail')) }}--}}
                         <div class="row" style="padding: 10px;">
                             <div class="col-lg-12">
 
@@ -68,131 +68,136 @@
                                 <div class="row" style="padding: 10px;">
                                     <div class="col-lg" id="list_transaksi">
                                         @if(!old('detail'))
-                                        <div class="row row-transaksi"
-                                             style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;">
-                                            <div class="col-md-11">
-                                                <div class="row">
-                                                    <div class="col-lg-2">Category</div>
-                                                    <div class="col-lg-10">
-                                                        <select name="detail[][category]" class="form-control category "
-                                                                required>
-                                                            <option value="0">Income</option>
-                                                            <option value="1">Expense</option>
-                                                        </select>
+                                            <div class="row row-transaksi"
+                                                 style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;">
+                                                <div class="col-md-11">
+                                                    <div class="row">
+                                                        <div class="col-lg-2">Category</div>
+                                                        <div class="col-lg-10">
+                                                            <select name="detail[][category]"
+                                                                    class="form-control category "
+                                                                    required>
+                                                                <option value="0">Income</option>
+                                                                <option value="1">Expense</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-2"></div>
+                                                        <div class="col-lg-10">
+                                                            <table class="table user-transaksi">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col">Nama Transaksi</th>
+                                                                    <th scope="col">Nominal</th>
+                                                                    <th scope="col">#</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th>
+                                                                        <input type="text"
+                                                                               class="form-control detail_name"
+                                                                               id=""
+                                                                               name="detail[uuid][data][][vehicle_rent_detail_transaction_name]"
+                                                                               placeholder="Nama Transaksi"
+                                                                               required>
+                                                                    </th>
+                                                                    <td>
+                                                                        <input type="number"
+                                                                               class="form-control detail_nominal"
+                                                                               name="detail[uuid][data][][vehicle_rent_detail_nominal]"
+                                                                               placeholder="Nominal"
+                                                                               required>
+                                                                    </td>
+                                                                    <td>
+                                                                        #
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-lg-2"></div>
-                                                    <div class="col-lg-10">
-                                                        <table class="table user-transaksi">
-                                                            <thead>
-                                                            <tr>
-                                                                <th scope="col">Nama Transaksi</th>
-                                                                <th scope="col">Nominal</th>
-                                                                <th scope="col">#</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>
-                                                                    <input type="text" class="form-control detail_name"
-                                                                           id=""
-                                                                           name="detail[uuid][data][][vehicle_rent_detail_transaction_name]"
-                                                                           placeholder="Nama Transaksi"
-                                                                           required>
-                                                                </th>
-                                                                <td>
-                                                                    <input type="number"
-                                                                           class="form-control detail_nominal"
-                                                                           name="detail[uuid][data][][vehicle_rent_detail_nominal]"
-                                                                           placeholder="Nominal"
-                                                                           required>
-                                                                </td>
-                                                                <td>
-                                                                    #
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                <div class="col-lg-1">
+                                                    <button class="btn btn-success add-users-transaksi">+</button>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-1">
-                                                <button class="btn btn-success add-users-transaksi">+</button>
-                                            </div>
-                                        </div>
                                         @else
-                                            <!-- if old data exist-->
-                                                @foreach(old('detail') as $key_uid => $vehicleRentDetail)
-                                                    <div class="row row-transaksi"
-                                                         style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;" data-id="{{(string) $key_uid}}">
-                                                        <div class="col-md-11">
-                                                            <div class="row">
-                                                                <div class="col-lg-2">Category </div>
-                                                                <div class="col-lg-10">
-                                                                    <select name="detail[{{(string) $key_uid}}][category]"
-                                                                            class="form-control category "
-                                                                            required>
-                                                                        <option value="0" {{$vehicleRentDetail["category"]==0?"selected": ""}}>
-                                                                            Income
-                                                                        </option>
-                                                                        <option value="1" {{$vehicleRentDetail['category']==1?'selected': ''}}>
-                                                                            Expense
-                                                                        </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-2"></div>
-                                                                <div class="col-lg-10">
-                                                                    <table class="table user-transaksi">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th scope="col">Nama Transaksi</th>
-                                                                            <th scope="col">Nominal</th>
-                                                                            <th scope="col">#</th>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        <tbody>
-
-                                                                        @foreach($vehicleRentDetail['data'] as $key => $row)
-                                                                            <tr>
-                                                                                <th>
-                                                                                    <input type="text"
-                                                                                           class="form-control detail_name"
-                                                                                           id=""
-                                                                                           name="detail[{{(string) $key_uid}}][data][{{$key}}][vehicle_rent_detail_transaction_name]"
-                                                                                           value="{{$row['vehicle_rent_detail_transaction_name']}}"
-                                                                                           placeholder="Nama Transaksi"
-                                                                                           required>
-                                                                                </th>
-                                                                                <td>
-                                                                                    <input type="number"
-                                                                                           class="form-control detail_nominal"
-                                                                                           name="detail[{{(string) $key_uid}}][data][{{$key}}][vehicle_rent_detail_nominal]"
-                                                                                           value="{{$row['vehicle_rent_detail_nominal']}}"
-                                                                                           placeholder="Nominal"
-                                                                                           required>
-                                                                                </td>
-                                                                                <td>
-                                                                                    @if($key > 0)
-                                                                                        <button class="btn btn-danger remove-users-transaksi-row">-</button>
-                                                                                    @endif
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endforeach
-
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
+                                        <!-- if old data exist-->
+                                            @foreach(old('detail') as $key_uid => $vehicleRentDetail)
+                                                <div class="row row-transaksi"
+                                                     style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;"
+                                                     data-id="{{(string) $key_uid}}">
+                                                    <div class="col-md-11">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">Category</div>
+                                                            <div class="col-lg-10">
+                                                                <select name="detail[{{(string) $key_uid}}][category]"
+                                                                        class="form-control category "
+                                                                        required>
+                                                                    <option value="0" {{$vehicleRentDetail["category"]==0?"selected": ""}}>
+                                                                        Income
+                                                                    </option>
+                                                                    <option value="1" {{$vehicleRentDetail['category']==1?'selected': ''}}>
+                                                                        Expense
+                                                                    </option>
+                                                                </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-1">
-                                                            <button class="btn btn-success add-users-transaksi">+</button>
+                                                        <div class="row">
+                                                            <div class="col-lg-2"></div>
+                                                            <div class="col-lg-10">
+                                                                <table class="table user-transaksi">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th scope="col">Nama Transaksi</th>
+                                                                        <th scope="col">Nominal</th>
+                                                                        <th scope="col">#</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+
+                                                                    @foreach($vehicleRentDetail['data'] as $key => $row)
+                                                                        <tr>
+                                                                            <th>
+                                                                                <input type="text"
+                                                                                       class="form-control detail_name"
+                                                                                       id=""
+                                                                                       name="detail[{{(string) $key_uid}}][data][{{$key}}][vehicle_rent_detail_transaction_name]"
+                                                                                       value="{{$row['vehicle_rent_detail_transaction_name']}}"
+                                                                                       placeholder="Nama Transaksi"
+                                                                                       required>
+                                                                            </th>
+                                                                            <td>
+                                                                                <input type="number"
+                                                                                       class="form-control detail_nominal"
+                                                                                       name="detail[{{(string) $key_uid}}][data][{{$key}}][vehicle_rent_detail_nominal]"
+                                                                                       value="{{$row['vehicle_rent_detail_nominal']}}"
+                                                                                       placeholder="Nominal"
+                                                                                       required>
+                                                                            </td>
+                                                                            <td>
+                                                                                @if($key > 0)
+                                                                                    <button class="btn btn-danger remove-users-transaksi-row">
+                                                                                        -
+                                                                                    </button>
+                                                                                @endif
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-lg-1">
+                                                        <button class="btn btn-success add-users-transaksi">+</button>
+                                                    </div>
+                                                </div>
 
-                                                @endforeach
+                                            @endforeach
                                         @endif
                                     </div>
                                 </div>
@@ -256,51 +261,51 @@
                 let dataUID = createUUID();
                 let dataUUID02 = createUUID()
                 let el_list_transaksi = '<div class="row row-transaksi" style="border: solid rgba(0, 0, 0, 0.1); padding: 10px;" data-id="' + dataUID + '">\n' +
-                                        '     <div class="col-md-11">\n' +
-                                        '         <div class="row">\n' +
-                                        '             <div class="col-lg-2">Category</div>\n' +
-                                        '             <div class="col-lg-10">\n' +
-                                        '                 <select name="detail[' + dataUID + '][category]"  class="form-control">\n' +
-                                        '                     <option value="0">Income</option>\n' +
-                                        '                     <option value="1">Expense</option>\n' +
-                                        '                 </select>\n' +
-                                        '             </div>\n' +
-                                        '         </div>\n' +
-                                        '         <div class="row">\n' +
-                                        '             <div class="col-lg-2"></div>\n' +
-                                        '             <div class="col-lg-10">\n' +
-                                        '                 <table class="table user-transaksi">\n' +
-                                        '                     <thead>\n' +
-                                        '                     <tr>\n' +
-                                        '                         <th scope="col">Nama Transaksi</th>\n' +
-                                        '                         <th scope="col">Nominal</th>\n' +
-                                        '                         <th scope="col">#</th>\n' +
-                                        '                     </tr>\n' +
-                                        '                     </thead>\n' +
-                                        '                     <tbody>\n' +
-                                        '                     <tr>\n' +
-                                        '                         <th >\n' +
-                                        '                             <input type="text" class="form-control"  name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_transaction_name]" placeholder="Nama Transaksi"\n' +
-                                        'required >\n' +
-                                        '                         </th>\n' +
-                                        '                         <td>\n' +
-                                        '                             <input type="number" class="form-control" name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_nominal]" placeholder="Nominal"\n' +
-                                        'required >\n' +
-                                        '                         </td>\n' +
-                                        '                         <td>\n' +
-                                        '                           ' +
-                                        '                         </td>\n' +
-                                        '                     </tr>\n' +
-                                        '                     </tbody>\n' +
-                                        '                 </table>\n' +
-                                        '             </div>\n' +
-                                        '         </div>\n' +
-                                        '     </div>\n' +
-                                        '     <div class="col-lg-1">\n' +
-                                        '         <button class="btn btn-success add-users-transaksi">+</button>\n' +
-                                        '         <button class="btn btn-danger remove-users-transaksi">-</button>\n' +
-                                        '     </div>\n' +
-                                        ' </div>'
+                    '     <div class="col-md-11">\n' +
+                    '         <div class="row">\n' +
+                    '             <div class="col-lg-2">Category</div>\n' +
+                    '             <div class="col-lg-10">\n' +
+                    '                 <select name="detail[' + dataUID + '][category]"  class="form-control">\n' +
+                    '                     <option value="0">Income</option>\n' +
+                    '                     <option value="1">Expense</option>\n' +
+                    '                 </select>\n' +
+                    '             </div>\n' +
+                    '         </div>\n' +
+                    '         <div class="row">\n' +
+                    '             <div class="col-lg-2"></div>\n' +
+                    '             <div class="col-lg-10">\n' +
+                    '                 <table class="table user-transaksi">\n' +
+                    '                     <thead>\n' +
+                    '                     <tr>\n' +
+                    '                         <th scope="col">Nama Transaksi</th>\n' +
+                    '                         <th scope="col">Nominal</th>\n' +
+                    '                         <th scope="col">#</th>\n' +
+                    '                     </tr>\n' +
+                    '                     </thead>\n' +
+                    '                     <tbody>\n' +
+                    '                     <tr>\n' +
+                    '                         <th >\n' +
+                    '                             <input type="text" class="form-control"  name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_transaction_name]" placeholder="Nama Transaksi"\n' +
+                    'required >\n' +
+                    '                         </th>\n' +
+                    '                         <td>\n' +
+                    '                             <input type="number" class="form-control" name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_nominal]" placeholder="Nominal"\n' +
+                    'required >\n' +
+                    '                         </td>\n' +
+                    '                         <td>\n' +
+                    '                           ' +
+                    '                         </td>\n' +
+                    '                     </tr>\n' +
+                    '                     </tbody>\n' +
+                    '                 </table>\n' +
+                    '             </div>\n' +
+                    '         </div>\n' +
+                    '     </div>\n' +
+                    '     <div class="col-lg-1">\n' +
+                    '         <button class="btn btn-success add-users-transaksi">+</button>\n' +
+                    '         <button class="btn btn-danger remove-users-transaksi">-</button>\n' +
+                    '     </div>\n' +
+                    ' </div>'
                 $('#list_transaksi').append(el_list_transaksi);
 
             });
@@ -315,18 +320,18 @@
                     let body_table = row_transaksi_scope.find('table.user-transaksi > tbody');
 
                     let new_row = '<tr>\n' +
-                                '    <th >\n' +
-                                '        <input type="text" class="form-control" name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_transaction_name]" placeholder="Nama Transaksi"\n' +
-                                '               required >\n' +
-                                '    </th>\n' +
-                                '    <td>\n' +
-                                '        <input type="number" class="form-control"  name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_nominal]" placeholder="Nominal"\n' +
-                                '               required >\n' +
-                                '    </td>\n' +
-                                '    <td>\n' +
-                                '        <button class="btn btn-danger remove-users-transaksi-row">-</button>\n' +
-                                '    </td>\n' +
-                                '</tr>'
+                        '    <th >\n' +
+                        '        <input type="text" class="form-control" name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_transaction_name]" placeholder="Nama Transaksi"\n' +
+                        '               required >\n' +
+                        '    </th>\n' +
+                        '    <td>\n' +
+                        '        <input type="number" class="form-control"  name="detail[' + dataUID + '][data][' + dataUUID02 + '][vehicle_rent_detail_nominal]" placeholder="Nominal"\n' +
+                        '               required >\n' +
+                        '    </td>\n' +
+                        '    <td>\n' +
+                        '        <button class="btn btn-danger remove-users-transaksi-row">-</button>\n' +
+                        '    </td>\n' +
+                        '</tr>'
                     body_table.append(new_row)
                     return false;
                 }

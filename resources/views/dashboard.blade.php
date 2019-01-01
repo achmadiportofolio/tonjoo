@@ -10,7 +10,8 @@
                 </li>
                 <li class="list-group-item disabled" aria-disabled="true"><h4>Dashboard</h4></li>
                 <li class="list-group-item {{ Route::currentRouteName()=='sewaKendaraan.index' && request()->has('no_aksi')?'list-group-item-success': '' }}">
-                    <h5> <a href="{{route('sewaKendaraan.index', ['no_aksi'])}}" class="text-decoration-none">Data Transaksi </a> </h5>
+                    <h5><a href="{{route('sewaKendaraan.index', ['no_aksi'])}}" class="text-decoration-none">Data
+                            Transaksi </a></h5>
                 </li>
                 <li class="list-group-item {{ Route::currentRouteName()=='sewaKendaraan.create'?'list-group-item-success': '' }} ">
                     <a href="{{route('sewaKendaraan.create')}}" class="text-decoration-none"> Tambah Data Transaksi </a>

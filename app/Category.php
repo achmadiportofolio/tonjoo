@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 
 {
-
     protected $table = 'category';
 
     protected $fillable = [
@@ -20,3 +19,4 @@ class Category extends Model
     }
 
 }
+
