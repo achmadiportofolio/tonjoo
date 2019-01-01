@@ -6,7 +6,8 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-exit('achmadi');
+//var_dump(parse_url("mysql://bbc0f39ccd604b:019edd4f@us-cdbr-iron-east-01.cleardb.net/heroku_45f6dc8d081ed36?reconnect=true"));
+//exit();
 define('LARAVEL_START', microtime(true));
 
 /*

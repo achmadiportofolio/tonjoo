@@ -1,4 +1,11 @@
 <?php
+//var_dump(parse_url("mysql://bbc0f39ccd604b:019edd4f@us-cdbr-iron-east-01.cleardb.net/heroku_45f6dc8d081ed36?reconnect=true"));
+//exit();
+$url = parse_url("mysql://bbc0f39ccd604b:019edd4f@us-cdbr-iron-east-01.cleardb.net/heroku_45f6dc8d081ed36?reconnect=true");
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
 
 return [
 
