@@ -6,8 +6,12 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-//var_dump(parse_url("mysql://bbc0f39ccd604b:019edd4f@us-cdbr-iron-east-01.cleardb.net/heroku_45f6dc8d081ed36?reconnect=true"));
-//exit();
+$url = parse_url("mysql://b580e3abc45d2e:e86896ec@us-cdbr-iron-east-01.cleardb.net/heroku_14aacbdd4ada760?reconnect=true");
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+var_dump($url);
 define('LARAVEL_START', microtime(true));
 
 /*
@@ -49,7 +53,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-
+exi('xxx');
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

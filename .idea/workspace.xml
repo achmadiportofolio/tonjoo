@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd2ac602-9ee2-4f84-9fe3-1d2069c9f26b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +46,7 @@
         <counts>
           <entry key="js" value="2" />
           <entry key="json" value="3" />
-          <entry key="php" value="7189" />
+          <entry key="php" value="7269" />
           <entry key="vue" value="3" />
         </counts>
       </usages-collector>
@@ -54,7 +55,7 @@
           <entry key="Blade" value="5100" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="2" />
-          <entry key="PHP" value="2089" />
+          <entry key="PHP" value="2169" />
           <entry key="Vue.js" value="3" />
         </counts>
       </usages-collector>
@@ -62,11 +63,12 @@
         <counts>
           <entry key="Procfile" value="1" />
           <entry key="css" value="2" />
-          <entry key="example" value="2" />
+          <entry key="env" value="1" />
+          <entry key="example" value="3" />
           <entry key="gitattributes" value="1" />
           <entry key="js" value="5" />
           <entry key="json" value="4" />
-          <entry key="php" value="63" />
+          <entry key="php" value="68" />
           <entry key="rnc" value="1" />
           <entry key="scss" value="2" />
           <entry key="vue" value="1" />
@@ -74,12 +76,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key=".env file" value="1" />
           <entry key="Blade" value="35" />
           <entry key="CSS" value="2" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="5" />
-          <entry key="PHP" value="28" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PHP" value="33" />
+          <entry key="PLAIN_TEXT" value="5" />
           <entry key="RNG Compact" value="1" />
           <entry key="SCSS" value="2" />
           <entry key="Vue.js" value="1" />
@@ -127,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2091">
-              <caret line="123" column="8" lean-forward="true" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
+            <state relative-caret-position="255">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -136,8 +139,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env.example">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" column="20" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="20" />
+              <caret line="22" column="79" selection-start-line="22" selection-start-column="76" selection-end-line="22" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -145,8 +157,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="8" selection-start-line="8" selection-start-column="2" selection-end-line="9" selection-end-column="9" />
+            <state relative-caret-position="244">
+              <caret line="55" column="11" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -154,8 +166,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+              <folding>
+                <element signature="e#33#71#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,24 +189,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/notification.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="31" selection-end-line="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -204,6 +210,7 @@
       <find>date</find>
       <find>de</find>
       <find>app.js</find>
+      <find>ind</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -224,7 +231,6 @@
         <option value="$PROJECT_DIR$/resources/views/layout_test.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/base.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/notification.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/vehicle_rent/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Category.php" />
         <option value="$PROJECT_DIR$/app/VehicleRent.php" />
@@ -236,8 +242,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/RecapVehiclesRentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/VehicleRentStoreRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php" />
-        <option value="$PROJECT_DIR$/.env.example" />
+        <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
+        <option value="$PROJECT_DIR$/.env.example" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
       </list>
     </option>
@@ -369,23 +378,18 @@
             <path>
               <item name="tonjoo" type="b2602c69:ProjectViewProjectNode" />
               <item name="tonjoo" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tonjoo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tonjoo" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tonjoo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tonjoo" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tonjoo" type="b2602c69:ProjectViewProjectNode" />
               <item name="tonjoo" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tonjoo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tonjoo" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -395,7 +399,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="data&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/config/database.php&#10;.env&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/.env.example&#10;/Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Requests/VehicleRentStoreRequest.php&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Requests/VehicleRentStoreRequest.php&#10;/Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/RecapVehiclesRentController.php&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/RecapVehiclesRentController.php&#10;/Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/VehiclesRentController.php&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/VehiclesRentController.php&#10;web&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/routes/web.php&#10;das&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/dashboard.blade.php&#10;vehiclerent&#9;null&#9;null&#10;index&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/vehicle_rent/index.blade.php&#10;VehiclesRentController&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/VehiclesRentController.php&#10;welco&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/welcome.blade.php&#10;Vehicle&#9;null&#9;null&#10;Ve&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Resources/VehiclesRentController.php&#10;Vehi&#9;null&#9;null&#10;welcome&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/welcome.blade.php&#10;route/web&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/routes/web.php" />
+    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/routes/web.php&#10;inde&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/public/index.php&#10;databa&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/config/database.php&#10;AppSer&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Providers/AppServiceProvider.php&#10;data&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/config/database.php&#10;.env&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/.env.example&#10;/Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Requests/VehicleRentStoreRequest.php&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Requests/VehicleRentStoreRequest.php&#10;/Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/RecapVehiclesRentController.php&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/RecapVehiclesRentController.php&#10;/Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/VehiclesRentController.php&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/VehiclesRentController.php&#10;das&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/dashboard.blade.php&#10;vehiclerent&#9;null&#9;null&#10;index&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/vehicle_rent/index.blade.php&#10;VehiclesRentController&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Controllers/VehiclesRentController.php&#10;welco&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/welcome.blade.php&#10;Vehicle&#9;null&#9;null&#10;Ve&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/app/Http/Resources/VehiclesRentController.php&#10;Vehi&#9;null&#9;null&#10;welcome&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/resources/views/welcome.blade.php&#10;route/web&#9;FILE&#9;file:///Users/achmadiachmadi/Desktop/Projects/trial_and_error/tonjoo/routes/web.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -434,12 +438,12 @@
       <updated>1546077245546</updated>
       <workItem from="1546077246809" duration="16834000" />
       <workItem from="1546226325825" duration="28000" />
-      <workItem from="1546296015231" duration="13916000" />
+      <workItem from="1546296015231" duration="15821000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33871000" />
+    <option name="totallyTimeSpent" value="35776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -568,13 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -594,13 +591,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" selection-end-line="24" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Category.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -723,20 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="123" column="8" lean-forward="true" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -744,17 +720,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding>
+            <element signature="e#33#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/vehicle_rent/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-137">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env.example">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="20" />
+          <caret line="22" column="79" selection-start-line="22" selection-start-column="76" selection-end-line="22" selection-end-column="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" selection-start-line="8" selection-start-column="2" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="244">
+          <caret line="55" column="11" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
         </state>
       </provider>
     </entry>
