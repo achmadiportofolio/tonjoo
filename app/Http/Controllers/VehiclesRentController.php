@@ -41,11 +41,14 @@ class VehiclesRentController extends Controller
         if ($request->filled('category_id')) {
             $category_id = request()->get('category_id');
             $vrQuery->where('vehicle_rent_detail.category_id', $category_id);
-
         }
         if ($request->filled('vehicle_rent_description')) {
             $vehicle_rent_description = request()->get('vehicle_rent_description');
-            $vrQuery->where('vehicle_rent.vehicle_rent_description', 'like', $vehicle_rent_description . '%');
+            $vrQuery->where(
+                'vehicle_rent.vehicle_rent_description',
+                'like',
+                $vehicle_rent_description . '%'
+            );
         }
 
         $vehicleRent = $vrQuery->orderBy('vehicle_rent.created_at')->paginate(5);
@@ -83,12 +86,10 @@ class VehiclesRentController extends Controller
         $detail = $request->get('detail');
 
         foreach ($detail as $uid => $detail) {
-
             $category = $detail['category'];
             $data     = $detail['data'];
 
             foreach ($data as $d) {
-
                 $vehicleRentDetail = VehicleRentDetail::create(
                     [
                         'group_code'                           => $uid,
@@ -103,7 +104,6 @@ class VehiclesRentController extends Controller
         }
 
         return redirect()->route('sewaKendaraan.index')->with('success', 'Data berhasil disimpan.');
-
     }
 
     /**
@@ -149,12 +149,10 @@ class VehiclesRentController extends Controller
         $detail = $request->get('detail');
         $vc->category()->detach();
         foreach ($detail as $uid => $detail) {
-
             $category = $detail['category'];
             $data     = $detail['data'];
 
             foreach ($data as $d) {
-
                 $vehicleRentDetail = VehicleRentDetail::create(
                     [
                         'group_code'                           => $uid,
@@ -163,11 +161,8 @@ class VehiclesRentController extends Controller
                         'vehicle_rent_detail_transaction_name' => $d['vehicle_rent_detail_transaction_name']
 
                     ]
-
                 );
                 $vc->vehicleRentDetail()->save($vehicleRentDetail);
-
-
             }
         }
 
@@ -189,10 +184,25 @@ class VehiclesRentController extends Controller
         $vc->vehicleRentDetail()->delete();
 
         if ($vc->delete()) {
-            return redirect()->route('sewaKendaraan.index')->with('success', 'Data transaksi ' . $vehicle_rent_code . ' (' . $vehicle_rent_description . ') berhasil dihapus.');
+            return redirect()->route('sewaKendaraan.index')
+                ->with(
+                    'success',
+                    'Data transaksi '
+                    . $vehicle_rent_code
+                    . ' ('
+                    . $vehicle_rent_description
+                    . ') berhasil dihapus.'
+                );
         }
 
-        return redirect()->route('sewaKendaraan.index')->with('success', 'Data transaksi ' . $vehicle_rent_code . ' (' . $vehicle_rent_description . ') gagal dihapus.');
-
+        return redirect()->route('sewaKendaraan.index')
+            ->with(
+                'success',
+                'Data transaksi '
+                . $vehicle_rent_code
+                . ' ('
+                . $vehicle_rent_description
+                . ') gagal dihapus.'
+            );
     }
 }

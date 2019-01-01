@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class VehicleRentDetail extends Model
-
 {
 
     protected $table = 'vehicle_rent_detail';

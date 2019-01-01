@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class VehicleRent extends Model
-
 {
 
     protected $table = 'vehicle_rent';
@@ -34,6 +33,4 @@ class VehicleRent extends Model
                 'group_code'
             ]);
     }
-
 }
-

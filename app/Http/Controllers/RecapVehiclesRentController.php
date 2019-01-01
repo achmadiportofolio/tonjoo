@@ -35,16 +35,14 @@ class RecapVehiclesRentController extends Controller
         if ($request->filled('category_id')) {
             $category_id = request()->get('category_id');
             $vrQuery->where('vehicle_rent_detail.category_id', $category_id);
-
         }
         if ($request->filled('vehicle_rent_description')) {
             $vehicle_rent_description = request()->get('vehicle_rent_description');
             $vrQuery->where('vehicle_rent.vehicle_rent_description', 'like', $vehicle_rent_description . '%');
         }
 
-        $vehicleRent = $vrQuery->groupBy(['vehicle_rent.vehicle_rent_date', 'category.category_name'])->orderBy('vehicle_rent.vehicle_rent_date')->paginate(5);
+        $vehicleRent = $vrQuery->groupBy(['vehicle_rent.vehicle_rent_date', 'category.category_name'])
+            ->orderBy('vehicle_rent.vehicle_rent_date')->paginate(5);
         return view('recap_vehicle_rent.index', compact('vehicleRent'));
     }
-
-
 }
