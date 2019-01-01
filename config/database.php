@@ -1,7 +1,8 @@
 <?php
 //var_dump(parse_url("mysql://bbc0f39ccd604b:019edd4f@us-cdbr-iron-east-01.cleardb.net/heroku_45f6dc8d081ed36?reconnect=true"));
 //exit();
-$url = parse_url("mysql://bbc0f39ccd604b:019edd4f@us-cdbr-iron-east-01.cleardb.net/heroku_45f6dc8d081ed36?reconnect=true");
+
+$url = parse_url("mysql://b580e3abc45d2e:e86896ec@us-cdbr-iron-east-01.cleardb.net/heroku_14aacbdd4ada760?reconnect=true");
 $server = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
@@ -49,11 +50,15 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+//            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => $server,
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+//            'database' => env('DB_DATABASE', 'forge'),
+            'database' => $db,
+//            'username' => env('DB_USERNAME', 'forge'),
+            'username' => $username,
+//            'password' => env('DB_PASSWORD', ''),
+            'password' => $password,
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
